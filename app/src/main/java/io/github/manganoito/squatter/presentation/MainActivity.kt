@@ -23,9 +23,11 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.tooling.preview.devices.WearDevices
+import dagger.hilt.android.AndroidEntryPoint
 import io.github.manganoito.squatter.R
 import io.github.manganoito.squatter.presentation.theme.SquatterTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
