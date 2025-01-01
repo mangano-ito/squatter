@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.google.ksp)
 }
@@ -52,6 +53,8 @@ dependencies {
     implementation(libs.wear.tooling.preview)
     implementation(libs.activity.compose)
     implementation(libs.core.splashscreen)
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization)
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.compiler)
     androidTestImplementation(platform(libs.compose.bom))
