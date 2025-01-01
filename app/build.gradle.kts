@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.kotlinx.serialization)
     implementation(libs.dagger.hilt.android)
+    implementation(libs.dagger.hilt.navigation.compose)
     ksp(libs.dagger.hilt.compiler)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
