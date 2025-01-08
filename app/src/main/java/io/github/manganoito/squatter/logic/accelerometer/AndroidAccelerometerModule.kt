@@ -17,4 +17,10 @@ class AndroidAccelerometerModule {
     fun provideSensorManager(@ApplicationContext context: Context): SensorManager {
         return context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
+
+    @Provides
+    @Singleton
+    fun provideAccelerometer(sensorManager: SensorManager): Accelerometer {
+        return DefaultAccelerometerImpl(sensorManager)
+    }
 }
