@@ -5,10 +5,12 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 import kotlin.math.pow
 import kotlin.math.sqrt
+import kotlin.time.Duration.Companion.milliseconds
 
 class DefaultAccelerometerImpl @Inject constructor(
     private val sensorManager: SensorManager,
@@ -32,8 +34,15 @@ class DefaultAccelerometerImpl @Inject constructor(
         return this / calcNorm()
     }
 
+    private infix fun FloatArray.dotProduct(other: FloatArray): Float {
+        return zip(other).map { (a, b) -> a * b }.sum()
+    }
+
     override suspend fun report() {
-        TODO()
+        while (true) {
+            acceleration.value = _accelerationVector.value dotProduct _unitGravityVector.value
+            delay(50.milliseconds)
+        }
     }
 
     override fun listen() {
