@@ -1,5 +1,6 @@
 package io.github.manganoito.squatter.presentation.home
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -19,8 +20,9 @@ fun HomeScreen(
 private fun HomeScreen(
     uiState: HomeUiState,
 ) {
-    // TODO
-    Text("Home")
+    Column {
+        Text("Count: ${uiState.count}")
+    }
 }
 
 @Preview(showBackground = true)
@@ -28,7 +30,9 @@ private fun HomeScreen(
 private fun PreviewHomeScreen() {
     SquatterTheme {
         HomeScreen(
-            uiState = HomeUiState.Initial,
+            uiState = HomeUiState(
+                count = 0,
+            ),
         )
     }
 }
